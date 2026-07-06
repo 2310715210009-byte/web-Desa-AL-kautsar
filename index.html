@@ -352,4 +352,1170 @@
         /* -------------------------------------------------------------------------- */
         .pengumuman-grid {
             display: grid;
-            grid-template-columns:
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pengumuman-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .pengumuman-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pengumuman-badge {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            display: inline-block;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+
+        .pengumuman-badge.penting {
+            background-color: #d9534f;
+        }
+
+        .pengumuman-body {
+            padding: 25px;
+        }
+
+        .pengumuman-date {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .pengumuman-body h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Statistik Demografi */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border-bottom: 4px solid var(--secondary-color);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid var(--primary-color);
+        }
+
+        .stat-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .stat-card h3 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .stat-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* -------------------------------------------------------------------------- */
+        /* Struktur Aparatur Desa & Interaktivitas Modal */
+        /* -------------------------------------------------------------------------- */
+        .aparatur-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .aparatur-card {
+            background: white;
+            width: 280px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .aparatur-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(44, 94, 59, 0.15);
+        }
+
+        .aparatur-img {
+            width: 100%;
+            height: 250px;
+            background-color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .aparatur-info {
+            padding: 20px;
+        }
+
+        .aparatur-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .aparatur-info p {
+            color: var(--accent-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* CSS Modal (Pop-up Biodata) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 550px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            position: relative;
+            transform: translateY(-50px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.show .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+            z-index: 10;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .modal-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-header i {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .modal-header h3 {
+            color: white;
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+        }
+
+        .modal-header p {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .biodata-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            padding: 10px 0;
+            border-bottom: 1px dashed #ececec;
+        }
+
+        .biodata-row:last-child {
+            border-bottom: none;
+        }
+
+        .biodata-label {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .biodata-value {
+            color: var(--text-dark);
+        }
+
+        /* Potensi Desa (Sawit, Tambang, Proklim) */
+        .potensi-section {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .potensi-section .section-title {
+            color: white;
+        }
+
+        .potensi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .potensi-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .potensi-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .potensi-card p {
+            color: #e0e0e0;
+        }
+
+        /* -------------------------------------------------------------------------- */
+        /* Prestasi Desa (Slider Horizontal) */
+        /* -------------------------------------------------------------------------- */
+        .prestasi-section {
+            background-color: #fcfdf8;
+            position: relative;
+        }
+
+        .slider-outer {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        .prestasi-slider {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            width: 100%;
+        }
+
+        .prestasi-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 0 15px;
+        }
+
+        .prestasi-card-full {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.03);
+            min-height: 380px;
+        }
+
+        .prestasi-img {
+            background-size: cover;
+            background-position: center;
+            min-height: 250px;
+            position: relative;
+        }
+
+        .prestasi-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .prestasi-content {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .prestasi-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .prestasi-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        /* Tombol Navigasi Slider */
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white;
+            color: var(--primary-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .slider-arrow:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .arrow-prev {
+            left: 20px;
+        }
+
+        .arrow-next {
+            right: 20px;
+        }
+
+        /* Slider Dots */
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #d1d5db;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background-color: var(--primary-color);
+            width: 25px;
+            border-radius: 10px;
+        }
+
+        /* -------------------------------------------------------------------------- */
+        /* Layanan Pengaduan */
+        /* -------------------------------------------------------------------------- */
+        .pengaduan-section {
+            background-color: #f1f3e3;
+        }
+
+        .pengaduan-box {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            padding: 50px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .pengaduan-icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .pengaduan-box p {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pengaduan-btn {
+            background-color: #d9534f; /* Warna merah penanda aksi penting */
+            color: white;
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 6px 20px rgba(217, 83, 79, 0.3);
+            transition: all 0.3s;
+        }
+
+        .pengaduan-btn:hover {
+            background-color: #c9302c;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(217, 83, 79, 0.5);
+        }
+
+        /* -------------------------------------------------------------------------- */
+        /* Peta Desa (Map) */
+        /* -------------------------------------------------------------------------- */
+        .map-wrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            border: 4px solid white;
+        }
+
+        .map-iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a3823;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .profil-grid, .visimisi-grid {
+                grid-template-columns: 1fr;
+            }
+            .prestasi-card-full {
+                grid-template-columns: 1fr;
+            }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .nav-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+            .splash-title { font-size: 2rem; }
+            .splash-logos { gap: 20px; }
+            .splash-logo-item img { height: 75px; }
+            .pengaduan-box { padding: 30px 20px; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ---------------------------------------------------------------------- -->
+    <!-- SPLASH SCREEN / SELAMAT DATANG -->
+    <!-- ---------------------------------------------------------------------- -->
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <div class="splash-logos">
+                <div class="splash-logo-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Logo_Kabupaten_Tanah_Bumbu.png" alt="Logo Kab Tanah Bumbu">
+                    <p>Kab. Tanah Bumbu</p>
+                </div>
+                <div class="splash-logo-item">
+                    <!-- Menggunakan ikon daun emas representatif untuk Desa Al-Kautsar Proklim -->
+                    <img src="https://img.icons8.com/color/144/000000/sprout.png" alt="Logo Desa Al-Kautsar">
+                    <p>Desa Al-Kautsar</p>
+                </div>
+            </div>
+            <h1 class="splash-title">Selamat Datang</h1>
+            <p class="splash-subtitle">Portal Pelayanan & Profil Resmi Pemerintah Desa Al-Kautsar <br>Kecamatan Satui, Kabupaten Tanah Bumbu</p>
+            <button id="enter-btn" class="enter-btn">Masuk ke Halaman Desa <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- ---------------------------------------------------------------------- -->
+    <!-- HEADER & NAVIGATION -->
+    <!-- ---------------------------------------------------------------------- -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Logo_Kabupaten_Tanah_Bumbu.png" alt="Kab Logo">
+                <span>Al-Kautsar</span>
+            </a>
+            <button class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#profil">Profil Desa</a></li>
+                <li><a href="#pengumuman">Pengumuman</a></li>
+                <li><a href="#kependudukan">Kependudukan</a></li>
+                <li><a href="#potensi">Potensi</a></li>
+                <li><a href="#prestasi">Prestasi</a></li>
+                <li><a href="#aparatur">Aparatur</a></li>
+                <li><a href="#pengaduan">Pengaduan</a></li>
+                <li><a href="#peta">Peta Wilayah</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <span class="badge-proklim"><i class="fas fa-leaf"></i> Desa Pemenang Proklim Nasional</span>
+        <h1>Desa Al-Kautsar</h1>
+        <p>Harmoni antara kemajuan potensi alam dan kelestarian lingkungan hidup. Mewujudkan masyarakat yang sejahtera, religius, dan berbudaya.</p>
+    </section>
+
+    <!-- ---------------------------------------------------------------------- -->
+    <!-- PROFIL & SEJARAH DESA -->
+    <!-- ---------------------------------------------------------------------- -->
+    <section id="profil" class="container">
+        <div class="profil-grid">
+            <div class="profil-text">
+                <span style="color: var(--accent-color); font-weight: 600; text-transform: uppercase;">Mengenal Lebih Dekat</span>
+                <h3>Sejarah Singkat Desa</h3>
+                <p>Desa Al-Kautsar terletak di wilayah administratif Kecamatan Satui, Kabupaten Tanah Bumbu, Provinsi Kalimantan Selatan [1.1.9, 1.2.1]. Desa ini tumbuh seiring dengan geliat perkembangan transmigrasi dan ekspansi sektor agrikultur di Tanah Bumbu.</p>
+                <p>Nama "Al-Kautsar" yang berarti 'Nikmat yang Berlimpah' melambangkan rasa syukur para pendiri desa atas anugerah alam yang kaya dan kesuburan tanah yang diwariskan. Berawal dari pemukiman swakarsa yang teratur, warga secara bergotong-royong membangun sistem pengelolaan wilayah yang seimbang demi kemakmuran bersama.</p>
+                <p>Meskipun berada berdampingan dengan kawasan industri ekstraktif dan perkebunan sawit skala besar, Desa Al-Kautsar berhasil menunjukkan integritas lingkungan melalui keberhasilan tata kelola ruang hijau hingga memperoleh penghargaan bergengsi tingkat nasional [1.1.4, 1.1.5, 1.1.9].</p>
+            </div>
+            <div class="profil-img-box">
+                <img class="profil-img" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Landscape Desa Al-Kautsar">
+            </div>
+        </div>
+    </section>
+
+    <!-- VISI & MISI DESA -->
+    <section class="visimisi-section">
+        <div class="container">
+            <h2 class="section-title">Visi & Misi Desa</h2>
+            <div class="visimisi-grid">
+                <div class="visimisi-card visi-card">
+                    <h3><i class="fas fa-eye" style="color: var(--accent-color);"></i> Visi</h3>
+                    <p class="visi-quote">"Mewujudkan Desa Al-Kautsar yang mandiri, berdaya saing, agamis, dan harmonis dalam pelestarian fungsi lingkungan hidup secara berkelanjutan."</p>
+                </div>
+                <div class="visimisi-card misi-card">
+                    <h3><i class="fas fa-tasks" style="color: var(--primary-color);"></i> Misi</h3>
+                    <ul class="misi-list">
+                        <li>Mengoptimalkan kualitas pelayanan publik yang transparan dan akuntabel berbasis inovasi sistem informasi digital desa.</li>
+                        <li>Mengembangkan kapasitas pertanian terpadu serta kemitraan perkebunan sawit berkelanjutan untuk menyejahterakan warga.</li>
+                        <li>Mengembangkan aksi nyata mitigasi dan adaptasi perubahan iklim melalui program kampung iklim (ProKlim) aktif di setiap dusun [1.1.4, 1.1.5].</li>
+                        <li>Meningkatkan kualitas sumber daya manusia yang terampil, berbudaya, serta berlandaskan nilai-nilai religius keagamaan.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------------- -->
+    <!-- PENGUMUMAN DESA -->
+    <!-- ---------------------------------------------------------------------- -->
+    <section id="pengumuman" class="container">
+        <h2 class="section-title">Pengumuman Desa</h2>
+        <div class="pengumuman-grid">
+            <div class="pengumuman-card">
+                <div class="pengumuman-body">
+                    <span class="pengumuman-badge penting"><i class="fas fa-exclamation-triangle"></i> Penting</span>
+                    <p class="pengumuman-date"><i class="far fa-calendar-alt"></i> 10 Februari 2026</p>
+                    <h4>Rapat Rutin Bulanan Warga & Evaluasi Proklim</h4>
+                    <p style="color: var(--text-light);">Diberitahukan kepada seluruh perwakilan RT dan kepala dusun untuk hadir pada musyawarah desa evaluasi aksi hijau bulanan yang bertempat di balai desa.</p>
+                </div>
+            </div>
+            <div class="pengumuman-card">
+                <div class="pengumuman-body">
+                    <span class="pengumuman-badge"><i class="fas fa-info-circle"></i> Info Kegiatan</span>
+                    <p class="pengumuman-date"><i class="far fa-calendar-alt"></i> 05 Februari 2026</p>
+                    <h4>Penyaluran Bantuan Langsung Tunai (BLT-DD)</h4>
+                    <p style="color: var(--text-light);">Pembagian dana BLT kuartal pertama tahun ini akan diselenggarakan di aula kantor desa. Harap membawa dokumen kelengkapan berupa fotokopi KK dan KTP asli.</p>
+                </div>
+            </div>
+            <div class="pengumuman-card">
+                <div class="pengumuman-body">
+                    <span class="pengumuman-badge"><i class="fas fa-hands-helping"></i> Gotong Royong</span>
+                    <p class="pengumuman-date"><i class="far fa-calendar-alt"></i> 02 Februari 2026</p>
+                    <h4>Aksi Bersih Lingkungan Dusun II & Penanaman Bibit</h4>
+                    <p style="color: var(--text-light);">Mengundang seluruh elemen warga Dusun II untuk bersama-sama melaksanakan aksi pelestarian lingkungan penanaman bibit pohon pelindung guna mendukung kesinambungan Proklim.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------------- -->
+    <!-- DATA KEPENDUDUKAN (DINAMIS SPREADSHEET / LOCAL FILE) -->
+    <!-- ---------------------------------------------------------------------- -->
+    <section id="kependudukan" class="container">
+        <h2 class="section-title">Data Kependudukan</h2>
+        <p style="text-align: center; color: var(--text-light); margin-top: -30px; margin-bottom: 50px;">
+            <i class="fas fa-sync-alt"></i> Data diperbarui secara otomatis melalui sinkronisasi dokumen kerja (*Live Update*).
+        </p>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fas fa-users"></i>
+                <h3 id="stat-total_penduduk">3.450</h3>
+                <p>Total Penduduk</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-home"></i>
+                <h3 id="stat-jumlah_kk">850</h3>
+                <p>Jumlah KK</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-male"></i>
+                <h3 id="stat-laki_laki">1.750</h3>
+                <p>Laki-Laki</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-female"></i>
+                <h3 id="stat-perempuan">1.700</h3>
+                <p>Perempuan</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-baby"></i>
+                <h3 id="stat-kelahiran">12</h3>
+                <p>Kelahiran (30 Hari)</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-book-dead"></i>
+                <h3 id="stat-kematian">3</h3>
+                <p>Kematian (30 Hari)</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-id-card"></i>
+                <h3 id="stat-warga_asli">2.100</h3>
+                <p>Warga Asli</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-truck-moving"></i>
+                <h3 id="stat-pendatang">1.350</h3>
+                <p>Pendatang</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- POTENSI DESA -->
+    <section id="potensi" class="potensi-section">
+        <div class="container">
+            <h2 class="section-title">Potensi Utama Wilayah</h2>
+            <div class="potensi-grid">
+                <div class="potensi-card">
+                    <h3><i class="fas fa-seedling"></i> Perkebunan Kelapa Sawit</h3>
+                    <p>Mendominasi lanskap ekonomi desa, perkebunan kelapa sawit di Al-Kautsar dikelola dengan prinsip keberlanjutan, menjadi urat nadi perekonomian warga sekaligus penyerap tenaga kerja lokal maupun pendatang [1.1.9, 1.2.1].</p>
+                </div>
+                <div class="potensi-card">
+                    <h3><i class="fas fa-gem"></i> Sektor Pertambangan</h3>
+                    <p>Terdapat beberapa titik pertambangan yang beroperasi berdampingan dengan tata ruang desa [1.1.9, 1.2.1]. Pengelolaannya diawasi ketat untuk memastikan kesejahteraan ekonomi sejalan dengan kelestarian alam.</p>
+                </div>
+                <div class="potensi-card">
+                    <h3><i class="fas fa-award"></i> Program Kampung Iklim</h3>
+                    <p>Kebanggaan Al-Kautsar adalah kemampuannya menyeimbangkan industri (sawit & tambang) dengan ekologi [1.1.9, 1.2.1]. Prestasi Proklim membuktikan komitmen warga dalam adaptasi dan mitigasi perubahan iklim secara nyata [1.1.4, 1.1.5].</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------------- -->
+    <!-- PRESTASI DESA (CAROUSEL SLIDER) -->
+    <!-- ---------------------------------------------------------------------- -->
+    <section id="prestasi" class="prestasi-section container">
+        <h2 class="section-title">Prestasi Unggulan Desa</h2>
+        <div class="slider-outer">
+            <button class="slider-arrow arrow-prev" onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-arrow arrow-next" onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></button>
+            
+            <div class="prestasi-slider" id="prestasi-slider">
+                <!-- Slide 1 -->
+                <div class="prestasi-slide">
+                    <div class="prestasi-card-full">
+                        <div class="prestasi-img" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                            <span class="prestasi-badge">Nasional</span>
+                        </div>
+                        <div class="prestasi-content">
+                            <h3>Trophy Program Kampung Iklim (ProKlim) Utama</h3>
+                            <p>Penghargaan langsung dari Kementerian Lingkungan Hidup dan Kehutanan (KLHK) Republik Indonesia atas kesuksesan aksi kolektif mitigasi pemanasan global di tingkat desa [1.1.4, 1.1.5].</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="prestasi-slide">
+                    <div class="prestasi-card-full">
+                        <div class="prestasi-img" style="background-image: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                            <span class="prestasi-badge">Provinsi</span>
+                        </div>
+                        <div class="prestasi-content">
+                            <h3>Juara I Desa Pelestari Lingkungan Kalsel</h3>
+                            <p>Penghargaan tingkat Provinsi Kalimantan Selatan atas integrasi pengelolaan pengolahan limbah organik domestik dan pelestarian konservasi resapan air.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="prestasi-slide">
+                    <div class="prestasi-card-full">
+                        <div class="prestasi-img" style="background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                            <span class="prestasi-badge">Kabupaten</span>
+                        </div>
+                        <div class="prestasi-content">
+                            <h3>Peringkat Terbaik Manajemen BUMDes</h3>
+                            <p>Apresiasi kinerja keuangan dan manajemen Badan Usaha Milik Desa Al-Kautsar yang dinilai transparan, produktif, dan berkontribusi nyata pada PADes.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="prestasi-slide">
+                    <div class="prestasi-card-full">
+                        <div class="prestasi-img" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                            <span class="prestasi-badge">Kabupaten</span>
+                        </div>
+                        <div class="prestasi-content">
+                            <h3>Pelopor Digitalisasi Pelayanan Desa</h3>
+                            <p>Dianugerahi sebagai desa inovatif atas penyediaan sistem surat menyurat mandiri berbasis web yang menyederhanakan keperluan administrasi publik.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 5 -->
+                <div class="prestasi-slide">
+                    <div class="prestasi-card-full">
+                        <div class="prestasi-img" style="background-image: url('https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                            <span class="prestasi-badge">Kecamatan</span>
+                        </div>
+                        <div class="prestasi-content">
+                            <h3>Juara Umum Lomba Kampung Hijau Satui</h3>
+                            <p>Piala bergilir di tingkat kecamatan berkat kebersihan lingkungan permukiman secara swadaya serta tatanan taman obat keluarga (TOGA) di tiap RT.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-dots" id="slider-dots"></div>
+    </section>
+
+    <!-- ---------------------------------------------------------------------- -->
+    <!-- STRUKTUR APARATUR DESA -->
+    <!-- ---------------------------------------------------------------------- -->
+    <section id="aparatur" class="container">
+        <h2 class="section-title">Struktur Aparatur Desa</h2>
+        <p style="text-align: center; color: var(--text-light); margin-top: -30px; margin-bottom: 50px;">
+            Klik nama atau foto aparatur untuk melihat informasi biodata lengkap.
+        </p>
+        <div class="aparatur-grid">
+            <div class="aparatur-card" onclick="showAparatur('kades')">
+                <div class="aparatur-img"><i class="fas fa-user-tie"></i></div>
+                <div class="aparatur-info">
+                    <h4>Bpk. Ahmad Fauzi</h4>
+                    <p>Kepala Desa</p>
+                </div>
+            </div>
+            <div class="aparatur-card" onclick="showAparatur('sekdes')">
+                <div class="aparatur-img"><i class="fas fa-user"></i></div>
+                <div class="aparatur-info">
+                    <h4>Ibu Siti Aminah</h4>
+                    <p>Sekretaris Desa</p>
+                </div>
+            </div>
+            <div class="aparatur-card" onclick="showAparatur('kaur_keu')">
+                <div class="aparatur-img"><i class="fas fa-user"></i></div>
+                <div class="aparatur-info">
+                    <h4>Bpk. Budi Santoso</h4>
+                    <p>Kaur Keuangan</p>
+                </div>
+            </div>
+            <div class="aparatur-card" onclick="showAparatur('kasi_pem')">
+                <div class="aparatur-img"><i class="fas fa-user"></i></div>
+                <div class="aparatur-info">
+                    <h4>Bpk. Rahman Hakim</h4>
+                    <p>Kasi Pemerintahan</p>
+                </div>
+            </div>
+            <div class="aparatur-card" onclick="showAparatur('kadun_1')">
+                <div class="aparatur-img"><i class="fas fa-user"></i></div>
+                <div class="aparatur-info">
+                    <h4>Bpk. Irwan Syah</h4>
+                    <p>Kepala Dusun I</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL INTERAKTIF APARATUR DESA -->
+    <div id="aparaturModal" class="modal" onclick="closeAparaturModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeAparaturModal()">&times;</span>
+            <div class="modal-header">
+                <i class="fas fa-id-card-alt"></i>
+                <h3 id="modal-nama">Nama Aparatur</h3>
+                <p id="modal-jabatan">Jabatan</p>
+            </div>
+            <div class="modal-body">
+                <div class="biodata-row">
+                    <span class="biodata-label">NIP/PPDN:</span>
+                    <span class="biodata-value" id="modal-nip">-</span>
+                </div>
+                <div class="biodata-row">
+                    <span class="biodata-label">Tempat, Tgl Lahir:</span>
+                    <span class="biodata-value" id="modal-ttl">-</span>
+                </div>
+                <div class="biodata-row">
+                    <span class="biodata-label">Pendidikan Terakhir:</span>
+                    <span class="biodata-value" id="modal-pendidikan">-</span>
+                </div>
+                <div class="biodata-row">
+                    <span class="biodata-label">Periode Tugas:</span>
+                    <span class="biodata-value" id="modal-periode">-</span>
+                </div>
+                <div class="biodata-row">
+                    <span class="biodata-label">Email / Kontak:</span>
+                    <span class="biodata-value" id="modal-kontak">-</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---------------------------------------------------------------------- -->
+    <!-- LAYANAN PENGADUAN (GOOGLE FORM) -->
+    <!-- ---------------------------------------------------------------------- -->
+    <section id="pengaduan" class="pengaduan-section">
+        <div class="container">
+            <h2 class="section-title">Layanan Pengaduan Online</h2>
+            <div class="pengaduan-box">
+                <div class="pengaduan-icon"><i class="fas fa-bullhorn"></i></div>
+                <h3>Sampaikan Masukan & Pengaduan Anda</h3>
+                <p>Kami sangat menghargai aspirasi Anda demi peningkatan pelayanan di Desa Al-Kautsar. Pengaduan, kritik, ataupun saran pembangunan desa dapat diajukan secara rahasia dan aman melalui formulir elektronik kami.</p>
+                <!-- Tautan Google Form -->
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeFhP59PjP3eN9Bv6gSp-0N13B9B-example/viewform" target="_blank" class="pengaduan-btn">
+                    <i class="fab fa-google"></i> Isi Formulir Pengaduan Resmi
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------------- -->
+    <!-- PETA WILAYAH DESA -->
+    <!-- ---------------------------------------------------------------------- -->
+    <section id="peta" class="container">
+        <h2 class="section-title">Peta Wilayah Desa</h2>
+        <div class="map-wrapper">
+            <!-- Menampilkan Sematan Peta Wilayah Desa Al-Kautsar Satui -->
+            <iframe class="map-iframe" src="https://maps.google.com/maps?q=Desa%20Al-Kautsar,%20Satui,%20Tanah%20Bumbu&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Pemerintah Desa Al-Kautsar. Hak Cipta Dilindungi.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; color: #8fb996;">Mewujudkan Desa Mandiri, Lestari, dan Berprestasi.</p>
+    </footer>
+
+    <!-- ---------------------------------------------------------------------- -->
+    <!-- JAVASCRIPT LOGIC -->
+    <!-- ---------------------------------------------------------------------- -->
+    <script>
+        // -------------------------------------------------------------------------
+        // 1. SINKRONISASI DATA EXCEL (GOOGLE SHEETS CSV ATAU FILE LOKAL)
+        // -------------------------------------------------------------------------
+        
+        // Letakkan URL Google Sheets yang sudah dipublikasikan sebagai CSV di sini.
+        // Jika dikosongkan, kode akan otomatis mencoba membaca file 'data.csv' di repositori Anda.
+        const GOOGLE_SHEET_CSV_URL = ''; 
+
+        // Data cadangan jika Google Sheets belum disinkronisasi
+        const defaultStats = {
+            total_penduduk: "3.450",
+            jumlah_kk: "850",
+            laki_laki: "1.750",
+            perempuan: "1.700",
+            kelahiran: "12",
+            kematian: "3",
+            warga_asli: "2.100",
+            pendatang: "1.350"
+        };
+
+        // Fungsi memuat data secara dinamis (mendukung Google Sheet atau data.csv lokal)
+        async function loadDemographicData() {
+            let csvData = '';
+            let dataSource = '';
+
+            try {
+                // 1. Coba muat dari Google Sheets terlebih dahulu jika URL diisi
+                if (GOOGLE_SHEET_CSV_URL) {
+                    const response = await fetch(GOOGLE_SHEET_CSV_URL);
+                    if (response.ok) {
+                        csvData = await response.text();
+                        dataSource = 'Google Sheets';
+                    }
+                } 
+                
+                // 2. Jika Google Sheets kosong/gagal, coba muat file lokal 'data.csv'
+                if (!csvData) {
+                    const response = await fetch('data.csv');
+                    if (response.ok) {
+                        csvData = await response.text();
+                        dataSource = 'data.csv lokal';
+                    }
+                }
+
+                // Jika data CSV berhasil didapatkan
+                if (csvData) {
+                    const rows = csvData.split('\n').map(row => row.split(','));
+                    const stats = {};
+                    
+                    rows.forEach(row => {
+                        if (row.length >= 2) {
+                            const key = row[0].trim().toLowerCase().replace(/\s+/g, '_');
+                            const val = row[1].trim();
+                            stats[key] = val;
+                        }
+                    });
+
+                    if (stats['total_penduduk']) {
+                        applyStats(stats);
+                        console.log('Data kependudukan berhasil dimuat dari ' + dataSource);
+                        return;
+                    }
+                }
+                
+                // 3. Jika semuanya kosong, gunakan data cadangan bawaan
+                applyStats(defaultStats);
+                console.log('Menggunakan data kependudukan default.');
+
+            } catch (error) {
+                console.warn('Gagal memuat data dinamis, menggunakan data cadangan default:', error);
+                applyStats(defaultStats);
+            }
+        }
+
+        function applyStats(data) {
+            const keys = ['total_penduduk', 'jumlah_kk', 'laki_laki', 'perempuan', 'kelahiran', 'kematian', 'warga_asli', 'pendatang'];
+            keys.forEach(key => {
+                const element = document.getElementById('stat-' + key);
+                if (element && data[key]) {
+                    element.innerText = data[key];
+                }
+            });
+        }
+
+        // Jalankan sinkronisasi data saat window dimuat
+        window.addEventListener('DOMContentLoaded', loadDemographicData);
+
+        // -------------------------------------------------------------------------
+        // 2. LOGIC SPLASH SCREEN (SELAMAT DATANG)
+        // -------------------------------------------------------------------------
+        const enterBtn = document.getElementById('enter-btn');
+        const splashScreen = document.getElementById('splash-screen');
+
+        enterBtn.addEventListener('click', () => {
+            splashScreen.classList.add('slide-up');
+            // Mengembalikan scrollbar pada body setelah halaman transisi selesai
+            document.body.style.overflowY = 'auto';
+        });
+
+        // Kunci gulir vertikal selama halaman pembuka aktif
+        document.body.style.overflowY = 'hidden';
+
+        // -------------------------------------------------------------------------
+        // 3. RESPONSIVE NAVIGATION MENU
+        // -------------------------------------------------------------------------
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Menutup menu nav ketika salah satu menu diklik pada tampilan perangkat mobile
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // -------------------------------------------------------------------------
+        // 4. PRESTASI SLIDER CAROUSEL
+        // -------------------------------------------------------------------------
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.prestasi-slide');
+        const dotsContainer = document.getElementById('slider-dots');
+
+        // Render Dots Navigasi Slider
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        function updateSlider() {
+            const slider = document.getElementById('prestasi-slider');
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Perbarui status aktif dots
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentSlide].classList.add('active');
+        }
+
+        function moveSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            } else if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+            updateSlider();
+        }
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateSlider();
+        }
+
+        // Putar otomatis (Autoplay) slider setiap 5 detik
+        setInterval(() => {
+            moveSlide(1);
+        }, 5000);
+
+        // -------------------------------------------------------------------------
+        // 5. MODAL BIODATA APARATUR DESA
+        // -------------------------------------------------------------------------
+        const dataAparatur = {
+            kades: {
+                nama: "Bpk. Ahmad Fauzi",
+                jabatan: "Kepala Desa (Pambakal)",
+                nip: "19780512 200902 1 003",
+                ttl: "Tanah Bumbu, 12 Mei 1978",
+                pendidikan: "S1 Ilmu Pemerintahan",
+                periode: "2021 - 2027",
+                kontak: "kades.alkautsar@tanahbumbukab.go.id"
+            },
+            sekdes: {
+                nama: "Ibu Siti Aminah",
+                jabatan: "Sekretaris Desa",
+                nip: "19831122 201101 2 004",
+                ttl: "Satui, 22 November 1983",
+                pendidikan: "S1 Administrasi Publik",
+                periode: "2021 - Sekarang",
+                kontak: "sekdes.alkautsar@gmail.com"
+            },
+            kaur_keu: {
+                nama: "Bpk. Budi Santoso",
+                jabatan: "Kaur Keuangan",
+                nip: "PPDN.6310.2014.234",
+                ttl: "Tanah Bumbu, 15 April 1987",
+                pendidikan: "D3 Akuntansi",
+                periode: "2019 - Sekarang",
+                kontak: "budi.keuangan@gmail.com"
+            },
+            kasi_pem: {
+                nama: "Bpk. Rahman Hakim",
+                jabatan: "Kasi Pemerintahan",
+                nip: "PPDN.6310.2016.512",
+                ttl: "Sungai Danau, 03 Januari 1990",
+                pendidikan: "S1 Hukum",
+                periode: "2022 - Sekarang",
+                kontak: "rahman.hakim@outlook.com"
+            },
+            kadun_1: {
+                nama: "Bpk. Irwan Syah",
+                jabatan: "Kepala Dusun I",
+                nip: "-",
+                ttl: "Al-Kautsar, 18 Agustus 1993",
+                pendidikan: "SMA Sederajat",
+                periode: "2021 - 2027",
+                kontak: "irwan.kadun1@gmail.com"
+            }
+        };
+
+        const modal = document.getElementById('aparaturModal');
+
+        function showAparatur(key) {
+            const person = dataAparatur[key];
+            if (!person) return;
+
+            document.getElementById('modal-nama').innerText = person.nama;
+            document.getElementById('modal-jabatan').innerText = person.jabatan;
+            document.getElementById('modal-nip').innerText = person.nip;
+            document.getElementById('modal-ttl').innerText = person.ttl;
+            document.getElementById('modal-pendidikan').innerText = person.pendidikan;
+            document.getElementById('modal-periode').innerText = person.periode;
+            document.getElementById('modal-kontak').innerText = person.kontak;
+
+            modal.classList.add('show');
+        }
+
+        function closeAparaturModal() {
+            modal.classList.remove('show');
+        }
+
+        // Tutup modal secara otomatis ketika tombol ESC ditekan
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeAparaturModal();
+            }
+        });
+    </script>
+</body>
+</html>
